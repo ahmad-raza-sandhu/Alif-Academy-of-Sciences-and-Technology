@@ -1,0 +1,1685 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alif Academy of Sciences and Technology | Premier Science Education</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* Global Styles with Animation Variables */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --text-light: #7f8c8d;
+            --bg-color: #f9f9f9;
+            --card-bg: white;
+            --header-bg: rgba(255, 255, 255, 0.9);
+            --footer-bg: #1a252f;
+            --animation-duration: 0.5s;
+        }
+
+        /* Dark Mode Variables */
+        [data-theme="dark"] {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #121212;
+            --text-color: #f5f5f5;
+            --text-light: #b0b0b0;
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --header-bg: rgba(30, 30, 30, 0.9);
+            --footer-bg: #0a0a0a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        @font-face {
+            font-family: 'Poppins';
+            src: url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            overflow-x: hidden;
+        }
+
+        /* Disable right-click and text selection */
+        body {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        /* Container with Animation */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            animation: fadeIn var(--animation-duration) ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        section {
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 2.3rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+            border-radius: 2px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        /* Animated Button */
+        .btn {
+            display: inline-block;
+            padding: 14px 30px;
+            background: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(52, 152, 219, 0.4);
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-accent {
+            background: var(--accent-color);
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+        }
+
+        .btn-accent:hover {
+            box-shadow: 0 10px 25px rgba(231, 76, 60, 0.4);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Floating Animation */
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        /* Pulse Animation */
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Header Styles with Glass Morphism */
+        header {
+            background-color: var(--header-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.03);
+        }
+
+        .logo img {
+            height: 55px;
+            margin-right: 12px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo-text h1 {
+            font-size: 1.6rem;
+            margin-bottom: 0;
+            color: var(--primary-color);
+            line-height: 1.2;
+        }
+
+        .logo-text p {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-bottom: 0;
+            font-weight: 500;
+        }
+
+        /* Theme Toggle Switch */
+        .theme-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 30px;
+            margin-left: 20px;
+        }
+
+        .theme-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--dark-color);
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 22px;
+            width: 22px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked+.slider {
+            background-color: var(--secondary-color);
+        }
+
+        input:checked+.slider:before {
+            transform: translateX(30px);
+        }
+
+        .slider i {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 14px;
+            color: white;
+        }
+
+        .slider .sun {
+            left: 8px;
+        }
+
+        .slider .moon {
+            right: 8px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+            position: relative;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 600;
+            transition: color 0.3s ease;
+            font-size: 1rem;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1001;
+        }
+
+        .mobile-menu-btn:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Hero Section with Parallax Effect */
+        .hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.85), rgba(44, 62, 80, 0.85)), url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 180px 0 120px;
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        [data-theme="dark"] .hero {
+            background: linear-gradient(rgba(18, 18, 18, 0.85), rgba(18, 18, 18, 0.85)), url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(transparent, var(--bg-color));
+            z-index: 1;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            color: white;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            color: var(--light-color);
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero .btn {
+            margin: 0 15px;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .hero .btn-accent {
+            animation: fadeInUp 1s ease 0.5s both;
+        }
+
+        .slogan {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            padding: 10px 25px;
+            border-radius: 50px;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: fadeIn 1s ease 0.3s both;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--bg-color);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 5px solid var(--secondary-color);
+            border-radius: 15px;
+            top: -20px;
+            left: -20px;
+            z-index: -1;
+            transition: all 0.5s ease;
+        }
+
+        .about-image:hover::before {
+            top: -15px;
+            left: -15px;
+        }
+
+        /* Courses Section */
+        .courses {
+            background: var(--card-bg);
+            position: relative;
+        }
+
+        .courses::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(var(--bg-color), var(--card-bg));
+            z-index: 1;
+        }
+
+        .courses .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .course-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            z-index: 1;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        [data-theme="dark"] .course-card {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .course-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(transparent 60%, rgba(0, 0, 0, 0.7));
+            z-index: 1;
+        }
+
+        .course-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .course-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .course-card:hover .course-img img {
+            transform: scale(1.1);
+        }
+
+        .course-info {
+            padding: 25px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .course-info h3 {
+            margin-bottom: 15px;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .course-info p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 20px;
+        }
+
+        .course-card:nth-child(1) .course-img {
+            background: linear-gradient(135deg, #3498db, #2ecc71);
+        }
+
+        .course-card:nth-child(2) .course-img {
+            background: linear-gradient(135deg, #e74c3c, #f39c12);
+        }
+
+        .course-card:nth-child(3) .course-img {
+            background: linear-gradient(135deg, #9b59b6, #3498db);
+        }
+
+        .course-card:nth-child(4) .course-img {
+            background: linear-gradient(135deg, #2ecc71, #3498db);
+        }
+
+        .course-card:nth-child(5) .course-img {
+            background: linear-gradient(135deg, #f39c12, #e74c3c);
+        }
+
+        .course-card:nth-child(6) .course-img {
+            background: linear-gradient(135deg, #3498db, #9b59b6);
+        }
+
+        /* Practical Section */
+        .practical {
+            background: var(--bg-color);
+            position: relative;
+        }
+
+        .practical::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(var(--card-bg), var(--bg-color));
+            z-index: 1;
+        }
+
+        .practical .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .practical-content {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap-reverse;
+            gap: 50px;
+        }
+
+        .practical-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .practical-image {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+
+        .practical-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s ease;
+        }
+
+        .practical-image:hover img {
+            transform: scale(1.02);
+        }
+
+        .practical-image::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%233498db"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>') no-repeat center;
+            background-size: contain;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.8;
+            transition: all 0.5s ease;
+            pointer-events: none;
+        }
+
+        .practical-image:hover::after {
+            transform: translate(-50%, -50%) scale(1.1);
+            opacity: 1;
+        }
+
+        .features {
+            margin-top: 40px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+            background: rgba(52, 152, 219, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        [data-theme="dark"] .feature-item {
+            background: rgba(52, 152, 219, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .feature-item:hover {
+            background: rgba(52, 152, 219, 0.1);
+            transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        [data-theme="dark"] .feature-item:hover {
+            background: rgba(52, 152, 219, 0.15);
+        }
+
+        .feature-icon {
+            margin-right: 20px;
+            color: var(--secondary-color);
+            font-size: 1.8rem;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        .feature-content h4 {
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(var(--bg-color), rgba(44, 62, 80, 0));
+            z-index: 1;
+        }
+
+        .contact .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact h2 {
+            color: white;
+        }
+
+        .contact h2::after {
+            background: white;
+        }
+
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 30px;
+            color: white;
+            font-size: 1.8rem;
+        }
+
+        .contact-details {
+            margin-bottom: 40px;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .contact-detail i {
+            margin-right: 20px;
+            color: white;
+            font-size: 1.5rem;
+            width: 30px;
+            text-align: center;
+        }
+
+        .contact-detail span {
+            font-size: 1.1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            font-size: 1.3rem;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .social-links a:hover {
+            background: white;
+            color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: white;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            background: white;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--footer-bg);
+            color: white;
+            padding: 60px 0 30px;
+            position: relative;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-col h3 {
+            color: white;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+
+        .footer-col p {
+            color: #bdc3c7;
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 15px;
+        }
+
+        .footer-col ul li a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .footer-col .contact-info li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .footer-col .contact-info i {
+            margin-right: 15px;
+            color: var(--secondary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+
+        /* Floating Elements */
+        .floating-element {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            z-index: 0;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 15px;
+            }
+
+            nav {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 80%;
+                height: calc(100vh - 80px);
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+                transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                z-index: 999;
+                padding-top: 30px;
+                border-radius: 0 20px 20px 0;
+            }
+
+            [data-theme="dark"] nav {
+                background: rgba(30, 30, 30, 0.95);
+            }
+
+            nav.active {
+                left: 0;
+            }
+
+            nav ul {
+                flex-direction: column;
+                padding: 0 30px;
+            }
+
+            nav ul li {
+                margin: 0 0 25px 0;
+            }
+
+            nav ul li a {
+                font-size: 1.2rem;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                padding: 150px 20px 80px;
+                background-attachment: scroll;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .btn {
+                padding: 12px 25px;
+            }
+
+            .about-image::before,
+            .practical-image::before {
+                display: none;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .btn {
+                display: block;
+                margin: 10px auto;
+                max-width: 200px;
+            }
+
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form {
+                padding: 30px 20px;
+            }
+
+            .theme-switch {
+                width: 50px;
+                height: 25px;
+                margin-left: 15px;
+            }
+
+            .slider:before {
+                height: 17px;
+                width: 17px;
+            }
+
+            input:checked+.slider:before {
+                transform: translateX(25px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <!-- Floating Background Elements -->
+    <div class="floating-element"
+        style="width: 300px; height: 300px; top: -150px; right: -150px; animation: floating 15s ease-in-out infinite;">
+    </div>
+    <div class="floating-element"
+        style="width: 200px; height: 200px; bottom: 100px; left: -100px; animation: floating 12s ease-in-out infinite reverse;">
+    </div>
+
+    <!-- Header -->
+    <header id="mainHeader">
+        <div class="container header-container">
+            <div class="logo">
+                <img src="https://i.postimg.cc/xTGRzHZB/Chat-GPT-Image-May-18-2025-06-07-49-PM.png"
+                    alt="Alif Academy Logo">
+                <div class="logo-text">
+                    <h1>Alif Academy</h1>
+                    <p>of Sciences and Technology</p>
+                </div>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="#practical">Practical</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li>
+                        <label class="theme-switch">
+                            <input type="checkbox" id="themeToggle">
+                            <span class="slider">
+                                <i class="fas fa-sun sun"></i>
+                                <i class="fas fa-moon moon"></i>
+                            </span>
+                        </label>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="slogan animate__animated animate__fadeIn">"Empowering Future Scientists"</div>
+            <h1 class="animate__animated animate__fadeInUp">Alif Academy of Sciences and Technology</h1>
+            <p class="animate__animated animate__fadeInUp">Science Seekhna Aasaan Bana Diya Hai!<br>Making science
+                learning accessible for everyone</p>
+            <div class="animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+                <a href="#courses" class="btn">Our Courses</a>
+                <a href="#contact" class="btn btn-accent">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="animate__animated animate__fadeIn">About Us</h2>
+            <div class="about-content">
+                <div class="about-text animate__animated animate__fadeInLeft">
+                    <p>Welcome to Alif Academy of Sciences and Technology, where we are committed to providing quality
+                        education in science subjects for students at various levels.</p>
+                    <p>Our academy specializes in preparing students for their board exams and practicals, ensuring they
+                        not only pass but excel in their science subjects.</p>
+                    <p>With experienced faculty, modern teaching methods, and a focus on conceptual understanding, we
+                        make science learning accessible and enjoyable for all students.</p>
+                    <p>Our mission is to build a strong foundation in science that will help students in their academic
+                        journey and beyond.</p>
+                    <div class="features">
+                        <div class="feature-item animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+                            <div class="feature-icon">
+                                <i class="fas fa-atom"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Conceptual Learning</h4>
+                                <p>We focus on building strong conceptual foundations rather than rote memorization.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
+                            <div class="feature-icon">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Expert Faculty</h4>
+                                <p>Our teachers are highly qualified with years of experience in science education.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image floating animate__animated animate__fadeInRight">
+                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                        alt="Students learning science">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section class="courses" id="courses">
+        <div class="container">
+            <h2 class="animate__animated animate__fadeIn">Our Courses</h2>
+            <p class="text-center animate__animated animate__fadeIn">We offer comprehensive courses designed to help
+                students master their science subjects</p>
+
+            <div class="courses-grid">
+                <!-- Course 1 -->
+                <div class="course-card animate__animated animate__fadeInUp">
+                    <div class="course-img">
+                        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1474&q=80"
+                            alt="9th Science Class">
+                    </div>
+                    <div class="course-info">
+                        <h3>9th Science Class</h3>
+                        <p>Comprehensive course covering Physics, Chemistry, and Biology for 9th grade students with
+                            focus on board exam preparation.</p>
+                        <a href="https://wa.me/923348066608?text=Assalamualaikum%20Sir,%20I%20saw%20the%209th%20Science%20Class%20section%20on%20your%20website%20'Alif%20Academy'.%20I%20am%20interested%20in%20joining%20this%20course."
+                            class="btn" target="_blank">Join Now</a>
+                    </div>
+                </div>
+
+                <!-- Course 2 -->
+                <div class="course-card animate__animated animate__fadeInUp" style="animation-delay: 0.1s;">
+                    <div class="course-img">
+                        <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80"
+                            alt="10th Science Class">
+                    </div>
+                    <div class="course-info">
+                        <h3>10th Science Class</h3>
+                        <p>Complete preparation for matriculation board exams with special focus on practical knowledge
+                            and application.</p>
+                        <a href="https://wa.me/923348066608?text=Assalamualaikum%20Sir,%20I%20saw%20the%2010th%20Science%20Class%20section%20on%20your%20website%20'Alif%20Academy'.%20I%20am%20interested%20in%20joining%20this%20course."
+                            class="btn" target="_blank">Join Now</a>
+                    </div>
+                </div>
+
+                <!-- Course 3 -->
+                <div class="course-card animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+                    <div class="course-img">
+                        <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                            alt="1st Year Pre-Medical/Pre-Engineering">
+                    </div>
+                    <div class="course-info">
+                        <h3>1st Year Pre-Medical/Pre-Engineering</h3>
+                        <p>Specialized courses for FSc students with in-depth coverage of physics, chemistry and
+                            biology/mathematics.</p>
+                        <a href="https://wa.me/923348066608?text=Assalamualaikum%20Sir,%20I%20saw%20the%201st%20Year%20Pre-Medical/Pre-Engineering%20section%20on%20your%20website%20'Alif%20Academy'.%20I%20am%20interested%20in%20joining%20this%20course."
+                            class="btn" target="_blank">Join Now</a>
+                    </div>
+                </div>
+
+                <!-- Course 4 -->
+                <div class="course-card animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
+                    <div class="course-img">
+                        <img src="https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                            alt="2nd Year Practical Preparation">
+                    </div>
+                    <div class="course-info">
+                        <h3>2nd Year Practical Preparation</h3>
+                        <p>Hands-on practical training for 2nd year students to excel in their board practical
+                            examinations.</p>
+                        <a href="https://wa.me/923348066608?text=Assalamualaikum%20Sir,%20I%20saw%20the%202nd%20Year%20Practical%20Preparation%20section%20on%20your%20website%20'Alif%20Academy'.%20I%20am%20interested%20in%20joining%20this%20course."
+                            class="btn" target="_blank">Join Now</a>
+                    </div>
+                </div>
+
+                <!-- Course 5 - New Course -->
+                <div class="course-card animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+                    <div class="course-img">
+                        <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                            alt="MDCAT Preparation">
+                    </div>
+                    <div class="course-info">
+                        <h3>MDCAT Preparation</h3>
+                        <p>Comprehensive preparation for Medical and Dental College Admission Test with mock tests and
+                            expert guidance.</p>
+                        <a href="https://wa.me/923348066608?text=Assalamualaikum%20Sir,%20I%20saw%20the%20MDCAT%20Preparation%20section%20on%20your%20website%20'Alif%20Academy'.%20I%20am%20interested%20in%20joining%20this%20course."
+                            class="btn" target="_blank">Join Now</a>
+                    </div>
+                </div>
+
+                <!-- Course 6 - New Course -->
+                <div class="course-card animate__animated animate__fadeInUp" style="animation-delay: 0.5s;">
+                    <div class="course-img">
+                        <img src="https://images.unsplash.com/photo-1581093450021-4a7360e9aabf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                            alt="ECAT Preparation">
+                    </div>
+                    <div class="course-info">
+                        <h3>ECAT Preparation</h3>
+                        <p>Specialized course for Engineering College Admission Test covering Physics, Chemistry and
+                            Mathematics.</p>
+                        <a href="https://wa.me/923348066608
+                        ?text=Assalamualaikum%20Sir,%20I%20saw%20the%20ECAT%20Preparation%20section%20on%20your%20website%20'Alif%20Academy'.%20I%20am%20interested%20in%20joining%20this%20course."
+                            class="btn" target="_blank">Join Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Practical Section -->
+    <section class="practical" id="practical">
+        <div class="container">
+            <h2 class="animate__animated animate__fadeIn">Practical Training Facility</h2>
+            <div class="practical-content">
+                <div class="practical-text">
+                    <p class="animate__animated animate__fadeInLeft">At Alif Academy, we understand the importance of
+                        practical knowledge in science education. That's why we've established a state-of-the-art
+                        practical training facility.</p>
+
+                    <div class="features">
+                        <div class="feature-item animate__animated animate__fadeInLeft" style="animation-delay: 0.2s;">
+                            <div class="feature-icon">
+                                <i class="fas fa-flask"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Modern Laboratory</h4>
+                                <p>Fully equipped laboratory with all necessary apparatus for physics, chemistry and
+                                    biology experiments.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item animate__animated animate__fadeInLeft" style="animation-delay: 0.3s;">
+                            <div class="feature-icon">
+                                <i class="fas fa-user-graduate"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Expert Guidance</h4>
+                                <p>Experienced instructors to guide students through each experiment and practical
+                                    procedure.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item animate__animated animate__fadeInLeft" style="animation-delay: 0.4s;">
+                            <div class="feature-icon">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Exam-Oriented Training</h4>
+                                <p>Focus on practicals that are part of board examinations to maximize marks.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item animate__animated animate__fadeInLeft" style="animation-delay: 0.5s;">
+                            <div class="feature-icon">
+                                <i class="fas fa-vial"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Individual Attention</h4>
+                                <p>Small batch sizes to ensure each student gets proper attention during practical
+                                    sessions.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="practical-image floating animate__animated animate__fadeInRight">
+                    <img src="https://images.unsplash.com/photo-1575505586569-646b2ca898fc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                        alt="Practical Training">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="animate__animated animate__fadeIn">Contact Us</h2>
+            <div class="contact-container">
+                <div class="contact-info animate__animated animate__fadeInLeft">
+                    <h3>Get in Touch</h3>
+                    <div class="contact-details">
+                        <div class="contact-detail">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>+92 334 8066608</span>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-envelope"></i>
+                            <span>sharafatchem88@gmail.com</span>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Opposite street to Jamea Masjid Muhammadi (Ahle Hadith) Bra Adda sharqpur
+                                sharif</span>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-clock"></i>
+                            <span>Monday - Saturday: 9:00 AM - 7:00 PM</span>
+                        </div>
+                    </div>
+
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+
+                <div class="contact-form animate__animated animate__fadeInRight">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="course">Interested Course</label>
+                            <select id="course" name="course" required>
+                                <option value="">Select a course</option>
+                                <option value="9th Science Class">9th Science Class</option>
+                                <option value="10th Science Class">10th Science Class</option>
+                                <option value="1st Year Pre-Medical/Pre-Engineering">1st Year
+                                    Pre-Medical/Pre-Engineering</option>
+                                <option value="2nd Year Practical Preparation">2nd Year Practical Preparation</option>
+                                <option value="MDCAT Preparation">MDCAT Preparation</option>
+                                <option value="ECAT Preparation">ECAT Preparation</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Alif Academy</h3>
+                    <p>Learning science made easy with Alif Academy!</p>
+                    <p>Providing quality science education since 2020.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#courses">Courses</a></li>
+                        <li><a href="#practical">Practical</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Courses</h3>
+                    <ul>
+                        <li><a href="#courses">9th Science Class</a></li>
+                        <li><a href="#courses">10th Science Class</a></li>
+                        <li><a href="#courses">1st Year Pre-Medical/Pre-Engineering</a></li>
+                        <li><a href="#courses">2nd Year Practical Preparation</a></li>
+                        <li><a href="#courses">MDCAT Preparation</a></li>
+                        <li><a href="#courses">ECAT Preparation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col contact-info">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +92 327 4337810</li>
+                        <li><i class="fas fa-envelope"></i> appdevelop33223@gmail.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Raiwind, Pakistan</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Alif Academy of Sciences and Technology. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript with Security Features -->
+    <script>
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const currentTheme = localStorage.getItem('theme') || 'light';
+
+        // Set the initial theme
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        if (currentTheme === 'dark') {
+            themeToggle.checked = true;
+        }
+
+        // Toggle theme when switch is clicked
+        themeToggle.addEventListener('change', function () {
+            if (this.checked) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // Disable right-click, inspect element, and keyboard shortcuts
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+            alert('Right-click is disabled for content protection.');
+        });
+
+        document.addEventListener('keydown', function (e) {
+            // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+            if (e.key === 'F12' ||
+                (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+                (e.ctrlKey && e.shiftKey && e.key === 'J') ||
+                (e.ctrlKey && e.key === 'u')) {
+                e.preventDefault();
+                alert('This action is not allowed for content protection.');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            mobileMenuBtn.innerHTML = mainNav.classList.contains('active')
+                ? '<i class="fas fa-times"></i>'
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll('nav ul li a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (mainNav.classList.contains('active')) {
+                    mainNav.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function () {
+            const header = document.getElementById('mainHeader');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Form submission handling with WhatsApp integration
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                // Get form values
+                const name = document.getElementById('name').value;
+                const phone = document.getElementById('phone').value;
+                const course = document.getElementById('course').value;
+                const message = document.getElementById('message').value;
+
+                // Create WhatsApp message
+                const whatsappMessage = `Assalam-o-Alaikum Sir,%0A%0AMy name is ${encodeURIComponent(name)}.%0APhone: ${encodeURIComponent(phone)}%0AI'm interested in ${encodeURIComponent(course)}.%0A%0AMessage:%0A${encodeURIComponent(message)}`;
+
+                // Open WhatsApp
+                window.open(`https://wa.me/923348066608?text=${whatsappMessage}`, '_blank');
+
+                // Reset form
+                contactForm.reset();
+
+                // Show success message
+                alert('Thank you for your message! We have opened WhatsApp for you to send your inquiry.');
+            });
+        }
+
+        // Scroll animations
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate__animated');
+
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+
+                if (elementPosition < screenPosition) {
+                    const animationClass = element.classList[1];
+                    element.classList.add(animationClass);
+                }
+            });
+        }
+
+        window.addEventListener('scroll', animateOnScroll);
+        animateOnScroll(); // Initialize
+
+        // Floating elements animation
+        const floatingElements = document.querySelectorAll('.floating-element');
+        floatingElements.forEach((el, index) => {
+            el.style.animationDelay = `${index * 2}s`;
+        });
+
+        // Course card hover effect enhancement
+        const courseCards = document.querySelectorAll('.course-card');
+        courseCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-15px)';
+                card.style.boxShadow = '0 20px 50px rgba(0, 0, 0, 0.2)';
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(-10px)';
+                card.style.boxShadow = '0 15px 40px rgba(0, 0, 0, 0.15)';
+            });
+        });
+
+        // Page load animation
+        document.body.style.opacity = '0';
+        window.addEventListener('load', function () {
+            document.body.style.transition = 'opacity 0.5s ease';
+            document.body.style.opacity = '1';
+        });
+    </script>
+</body>
+
+</html>
