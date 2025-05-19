@@ -1129,6 +1129,95 @@
                 transform: translateX(25px);
             }
         }
+
+        /* ===== FACULTY SECTION STYLES ===== */
+        .faculty {
+            background: var(--card-bg);
+            position: relative;
+        }
+
+        .faculty::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(var(--bg-color), var(--card-bg));
+            z-index: 1;
+        }
+
+        .faculty .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .faculty-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .faculty-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        [data-theme="dark"] .faculty-card {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .faculty-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .faculty-img {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .faculty-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .faculty-card:hover .faculty-img img {
+            transform: scale(1.05);
+        }
+
+        .faculty-info {
+            padding: 25px;
+            flex-grow: 1;
+        }
+
+        .faculty-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+
+        .qualification {
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .bio {
+            color: var(--text-color);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
     </style>
 </head>
 
@@ -1164,6 +1253,7 @@
                     <li><a href="#courses">Courses</a></li>
                     <li><a href="#practical">Practical</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <li><a href="#faculty">Faculty</a></li>
                     <li>
                         <label class="theme-switch">
                             <input type="checkbox" id="themeToggle">
@@ -1188,6 +1278,7 @@
             <div class="animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
                 <a href="#courses" class="btn">Our Courses</a>
                 <a href="#contact" class="btn btn-accent">Contact Us</a>
+
             </div>
         </div>
     </section>
@@ -1336,7 +1427,93 @@
             </div>
         </div>
     </section>
+    <!-- ===== FACULTY SECTION ===== -->
+    <section class="faculty" id="faculty">
+        <div class="container">
+            <h2 class="animate__animated animate__fadeIn">Our Expert Faculty</h2>
+            <p class="text-center animate__animated animate__fadeIn">Learn from the best educators in their fields</p>
 
+            <div class="faculty-grid">
+                <!-- Faculty 1 -->
+                <div class="faculty-card animate__animated animate__fadeInUp">
+                    <div class="faculty-img">
+                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
+                            alt="Sir Sharafat">
+                    </div>
+                    <div class="faculty-info">
+                        <h3>Sir Sharafat</h3>
+                        <p class="qualification">Chemical Engineering</p>
+                        <p class="bio">Specialized in industrial chemistry with 10+ years teaching experience.</p>
+                    </div>
+                </div>
+
+                <!-- Faculty 2 -->
+                <div class="faculty-card animate__animated animate__fadeInUp" style="animation-delay: 0.1s;">
+                    <div class="faculty-img">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
+                            alt="Sir Imran Zafar">
+                    </div>
+                    <div class="faculty-info">
+                        <h3>Sir Imran Zafar</h3>
+                        <p class="qualification">MPhil Mathematics</p>
+                        <p class="bio">Advanced mathematics expert with research publications.</p>
+                    </div>
+                </div>
+
+                <!-- Faculty 3 -->
+                <div class="faculty-card animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+                    <div class="faculty-img">
+                        <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
+                            alt="Sir Najam">
+                    </div>
+                    <div class="faculty-info">
+                        <h3>Sir Najam</h3>
+                        <p class="qualification">MSc Zoology</p>
+                        <p class="bio">Biological sciences specialist with field research experience.</p>
+                    </div>
+                </div>
+
+                <!-- Faculty 4 -->
+                <div class="faculty-card animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
+                    <div class="faculty-img">
+                        <img src="https://images.unsplash.com/photo-1542190891-2093d38760f2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
+                            alt="Sir Shabir">
+                    </div>
+                    <div class="faculty-info">
+                        <h3>Sir Shabir</h3>
+                        <p class="qualification">MA Urdu</p>
+                        <p class="bio">Urdu literature expert with classical poetry specialization.</p>
+                    </div>
+                </div>
+
+                <!-- Faculty 5 -->
+                <div class="faculty-card animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+                    <div class="faculty-img">
+                        <img src="https://images.unsplash.com/photo-1542178243-bc20204b769f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=680&q=80"
+                            alt="Sir Waleed">
+                    </div>
+                    <div class="faculty-info">
+                        <h3>Sir Waleed</h3>
+                        <p class="qualification">BS IT</p>
+                        <p class="bio">Information technology specialist with industry experience.</p>
+                    </div>
+                </div>
+
+                <!-- Faculty 6 -->
+                <div class="faculty-card animate__animated animate__fadeInUp" style="animation-delay: 0.5s;">
+                    <div class="faculty-img">
+                        <img src="https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
+                            alt="Sir Qalab">
+                    </div>
+                    <div class="faculty-info">
+                        <h3>Sir Qalab</h3>
+                        <p class="qualification">MA English</p>
+                        <p class="bio">English linguistics and literature expert with 8+ years experience.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- Practical Section -->
     <section class="practical" id="practical">
         <div class="container">
@@ -1492,6 +1669,7 @@
                         <li><a href="#courses">Courses</a></li>
                         <li><a href="#practical">Practical</a></li>
                         <li><a href="#contact">Contact</a></li>
+                        <li><a href="#faculty">Faculty</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
